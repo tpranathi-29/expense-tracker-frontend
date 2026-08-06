@@ -1,70 +1,257 @@
-# Getting Started with Create React App
+# 💰 Expense Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Full Stack Expense Tracker Web Application built using **Spring Boot**, **React**, **MySQL**, **Spring Security**, and **JWT Authentication**.
 
-## Available Scripts
+This application allows users to securely manage their daily expenses, upload receipts, generate PDF reports, and analyze monthly spending through an interactive dashboard.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ User Registration
+- ✅ User Login
+- ✅ JWT Authentication
+- ✅ Spring Security
+- ✅ Add Expense
+- ✅ Update Expense
+- ✅ Delete Expense
+- ✅ View All Expenses
+- ✅ Search Expenses
+- ✅ Filter Expenses by Category
+- ✅ Monthly Expense Analytics
+- ✅ Dashboard Summary
+- ✅ Upload Expense Receipt
+- ✅ Download PDF Expense Report
+- ✅ Pagination
+- ✅ REST APIs
+- ✅ Swagger API Documentation
+- ✅ Responsive React Frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+# 🛠 Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backend
 
-### `npm run build`
+- Java 17
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- JWT Authentication
+- MySQL
+- Maven
+- Swagger OpenAPI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React
+- React Router DOM
+- Axios
+- Recharts
+- HTML5
+- CSS3
+- Bootstrap
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Database
 
-### `npm run eject`
+- MySQL
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 📂 Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+ExpenseTracker
+│
+├── expense-tracker-backend
+│   ├── config
+│   ├── controller
+│   ├── dto
+│   ├── exception
+│   ├── model
+│   ├── repository
+│   ├── security
+│   ├── service
+│   ├── resources
+│   └── ExpenseTrackerApplication.java
+│
+└── expense-tracker-frontend
+    ├── public
+    ├── src
+    ├── components
+    ├── pages
+    ├── services
+    └── App.js
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+# ⚙ Backend Setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Clone Repository
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/your-username/expense-tracker.git
+```
 
-### Code Splitting
+### Go to Backend Folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd expense-tracker-backend
+```
 
-### Analyzing the Bundle Size
+### Install Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+mvn clean install
+```
 
-### Making a Progressive Web App
+### Run Spring Boot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+mvn spring-boot:run
+```
 
-### Advanced Configuration
+Backend URL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+http://localhost:8080
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# ⚙ Frontend Setup
 
-### `npm run build` fails to minify
+### Go to Frontend Folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd expense-tracker-frontend
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run React Application
+
+```bash
+npm start
+```
+
+Frontend URL
+
+```
+http://localhost:3000
+```
+
+---
+
+# 🗄 Database Configuration
+
+Create the database.
+
+```sql
+CREATE DATABASE expense_tracker;
+```
+
+Update the database details in:
+
+```
+application.properties
+```
+
+Example
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/expense_tracker
+spring.datasource.username=root
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+```
+
+---
+
+# 🔐 Authentication
+
+This project uses **JWT Authentication**.
+
+Workflow
+
+1. Register a new user.
+2. Login using email and password.
+3. Receive JWT Token.
+4. Use the token for all protected APIs.
+
+Example
+
+```
+Authorization: Bearer your_jwt_token
+```
+
+---
+
+# 📚 API Documentation
+
+Swagger UI
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+---
+
+# 📊 Main Modules
+
+- Authentication Module
+- Expense Management Module
+- Dashboard Module
+- Search Module
+- Category Filter Module
+- Monthly Analytics Module
+- Receipt Upload Module
+- PDF Report Module
+
+---
+
+# 📈 Future Enhancements
+
+- Budget Planning
+- Expense Prediction using AI
+- Email Notifications
+- Export to Excel
+- Multi-Currency Support
+- Dark Mode
+- Mobile Application
+
+---
+
+# 👨‍💻 Author
+
+**Pranathi T**
+
+Computer Science Engineering Student
+
+Java Full Stack Developer
+
+---
+
+# ⭐ Support
+
+If you like this project, please give it a ⭐ on GitHub.
+
+---
+
+# 📸 Screenshots
+
+Add screenshots here after running the project.
+
+- Login Page
+- Register Page
+- Dashboard
+- Add Expense
+- Expense List
+- Charts
+- Monthly Report
+- Swagger API
