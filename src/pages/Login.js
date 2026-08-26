@@ -31,32 +31,39 @@ function Login() {
     setLoading(true);
     setError("");
 
-    try {
+   try {
+  const response = await loginUser({
+    email,
+    password,
+  });
 
-      const response = await loginUser({
-        email,
-        password,
-      });
+  const token = response.data;
 
-      localStorage.setItem("token", response.data);
+  if (!token || token === "Invalid password!" || token === "User not found!") {
+    setError(token || "Login failed.");
+    return;
+  }
 
-      navigate("/dashboard");
+  localStorage.setItem("token", token);
 
-    } catch (err) {
+  navigate("/dashboard");
 
+} catch (err) {
   console.error(err);
 
   if (err.response) {
-    setError(err.response.data);
+    setError(
+      typeof err.response.data === "string"
+        ? err.response.data
+        : "Login failed."
+    );
   } else {
     setError("Server not responding.");
   }
 
 } finally {
-
-      setLoading(false);
-
-    }
+  setLoading(false);
+}
 
   };
 
