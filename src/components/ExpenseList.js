@@ -46,10 +46,11 @@ function ExpenseList({
 
     }
 
-    window.open(
-      `http://localhost:8080/uploads/${receipt}`,
-      "_blank"
-    );
+  window.open(
+    `https://expense-tracker-backend-q5a1.onrender.com/uploads/${receipt}`,
+    "_blank"
+  );
+};
   };
 
   return (
