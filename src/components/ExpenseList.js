@@ -51,8 +51,6 @@ function ExpenseList({
     "_blank"
   );
 };
-  };
-
   return (
 
     <div
@@ -292,7 +290,7 @@ expenses.map((expense) => (
     </div>
 
   );
-}
+
 const thStyle = {
   padding: "14px",
   textAlign: "center",
@@ -340,5 +338,5 @@ const viewButton = {
   marginTop: "6px",
   transition: "0.3s",
 };
-
+};
 export default ExpenseList;
