@@ -183,30 +183,27 @@ function Dashboard() {
   // ============================
 
   const filteredExpenses = expenses.filter((expense) => {
-
-    const keyword = search.toLowerCase();
+    const keyword = (search || "").toString().trim().toLowerCase();
+    const title = (expense?.title || "").toString().trim().toLowerCase();
+    const category = (expense?.category || "").toString().trim().toLowerCase();
+    const description = (expense?.description || "").toString().trim().toLowerCase();
 
     const matchesSearch =
-      expense.title.toLowerCase().includes(keyword) ||
-      expense.category.toLowerCase().includes(keyword) ||
-      expense.description.toLowerCase().includes(keyword);
+      !keyword ||
+      title.includes(keyword) ||
+      category.includes(keyword) ||
+      description.includes(keyword);
 
     const matchesCategory =
       categoryFilter === "All"
         ? true
-        : expense.category === categoryFilter;
+        : (expense?.category || "") === categoryFilter;
 
     const matchesDate =
-      dateFilter === ""
-        ? true
-        : expense.date === dateFilter;
+      !dateFilter ||
+      (expense?.date || "") === dateFilter;
 
-    return (
-      matchesSearch &&
-      matchesCategory &&
-      matchesDate
-    );
-
+    return matchesSearch && matchesCategory && matchesDate;
   });
 
   const categories = [
